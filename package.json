@@ -1,0 +1,30 @@
+{
+  "name": "hexa_architecture",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "pnpm depcruise:validate && pnpm clean && tsc --project tsconfig.json",
+    "start": "node dist/core/main.js",
+    "dev": "pnpm clean && pnpm build && pnpm start",
+    "depcruise:validate": "pnpm depcruise --validate ./.dependency-cruiser.js --output-type err-long ./src",
+    "depcruise:tree": "pnpm depcruise src --include-only '^src' --config .dependency-cruiser.js --output-type dot | dot -T svg > dependency-graph.svg && open dependency-graph.svg"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "dependency-cruiser": "^16.10.2",
+    "pnpm": "^10.11.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  },
+  "dependencies": {
+    "fastify": "^5.3.3",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  }
+}
