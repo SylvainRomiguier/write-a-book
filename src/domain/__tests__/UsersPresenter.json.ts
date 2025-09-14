@@ -1,5 +1,5 @@
-import { UsersPresenter } from "../domain/presenters/UsersPresenter";
-import { UserDto } from "../domain/services/UserService";
+import { UsersPresenter } from "../presenters/UsersPresenter";
+import { UserDto } from "../services/UserService";
 
 type JsonUserDto = {
   id: string;
